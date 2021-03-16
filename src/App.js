@@ -3,13 +3,25 @@ import './App.css';
 import { Component } from 'react';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      name: 'Bruno Vieira Campos'
+    };
+
+  }
+
   render(){
+    const { name } = this.state; 
+
       return (
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
+            <p onClick={() => console.log('<p> clicado')}>
+              { name }
             </p>
             <a
               className="App-link"
