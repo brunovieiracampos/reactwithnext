@@ -24,39 +24,40 @@ class App extends Component {
 
   handlePClick = () => {
     this.setState({ name: 'Vieira Bruno' });
-  }
+  };
 
   handleAClick = (event) =>{
     event.preventDefault();
     const { counter } = this.state;
     
     this.setState( {counter: counter + 1} );
-  }
-
+  };
 
   componentDidMount(){
-    
     this.handleTimeout();
-    
   };
+
+  timeoutUpdate = null;
 
   componentDidUpdate(){
     this.handleTimeout();
+  }
 
+  componentWillUnmount(){
+    clearTimeout(this.timeoutUpdate);
   }
 
   handleTimeout = () => {
     const {posts, counter } = this.state;
     posts[0].title = 'O título mudou';
 
-    setTimeout(() => {
+    this.timeoutUpdate = setTimeout(() => {
       this.setState({
         posts,
         counter : counter + 1
       })
     }, 2000);
   }
-
 
   render(){
     const { posts, counter } = this.state; 
@@ -73,6 +74,7 @@ class App extends Component {
         </div>
     );
   }
+
 }
 
 export default App;
