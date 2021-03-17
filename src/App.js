@@ -1,5 +1,6 @@
 import './App.css';
 import { Component } from 'react';
+import { PostCard } from './components/PostCard';
 
 class App extends Component {
 
@@ -46,13 +47,7 @@ class App extends Component {
         <section className="container">
           <div className="App" className="posts">
             {posts.map(post => (
-              <div className="post">
-                <img src={post.cover} alt={post.title} />
-                <div key={post.id} className="post-content">
-                  <h1>{post.title}</h1>
-                  <p>{post.body}</p>
-                </div>
-              </div>
+              <PostCard { ...post } key={post.id}/>
             ))}
           </div>
         </section>
