@@ -5,7 +5,7 @@ import { Home } from './templates/Home/Index';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Home numberToIncrement={2} />
   </React.StrictMode>,
   document.getElementById('root')
 );
